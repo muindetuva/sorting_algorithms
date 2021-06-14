@@ -27,6 +27,8 @@ void print_array(const int *array, size_t size);
 /* FUnction Prototypes */
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
+void selection_sort(int *array, size_t size);
 void swap(listint_t *node1, listint_t *node2, listint_t **head);
+int index_of_min(int *arr, int start_index, size_t size);
 
 #endif /* SORT_H */
