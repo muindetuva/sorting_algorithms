@@ -15,10 +15,14 @@ void selection_sort(int *array, size_t size)
 	for (i = 0; i < size; i++)
 	{
 		index = index_of_min(array, i, size);
-		temp = array[i];
-		array[i] = array[index];
-		array[index] = temp;
-		print_array(array, size);
+		/* Only swap if there was a new value returned */
+		if (index != -1)
+		{
+			temp = array[i];
+			array[i] = array[index];
+			array[index] = temp;
+			print_array(array, size);
+		}
 	}
 }
 
@@ -44,5 +48,8 @@ int index_of_min(int *arr, int start_index, size_t size)
 			min_value = arr[i];
 		}
 	}
+	/* Flag to mark when no new minimum value was found */
+	if (min_index == start_index)
+		return (-1);
 	return (min_index);
 }
